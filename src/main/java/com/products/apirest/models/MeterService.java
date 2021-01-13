@@ -1,6 +1,6 @@
 package com.products.apirest.models;
 
-public class ProductService {
+public class MeterService {
 	
     
 }

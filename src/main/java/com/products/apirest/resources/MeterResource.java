@@ -11,49 +11,49 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.products.apirest.models.Products;
-import com.products.apirest.repository.ProductRepository;
+import com.products.apirest.models.Meters;
+import com.products.apirest.repository.MeterRepository;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value="/api")
-@Api(value="API REST Products")
+@Api(value="API REST Meters")
 @CrossOrigin(origins="*")
-public class ProductResource {
+public class MeterResource {
 
 	@Autowired
-	ProductRepository productRepository;
+	MeterRepository meterRepository;
 	
-	@GetMapping("/products")
+	@GetMapping("/meters")
 	@ApiOperation(value="Retorna uma lista com todos os produtos.")
-	public List<Products> listProdcts(){
-		return productRepository.findAll();
+	public List<Meters> listProdcts(){
+		return meterRepository.findAll();
 	}
 	
-	@GetMapping("/product/{id}")
+	@GetMapping("/meter/{id}")
 	@ApiOperation(value="Retorna um produto para a id especificada.")
-	public Products listOneProduct(@PathVariable(value="id") long id){
-		return productRepository.findById(id);
+	public Meters listOneProduct(@PathVariable(value="id") long id){
+		return meterRepository.findById(id);
 	}
 	
-	@PostMapping("/product")
+	@PostMapping("/meter")
 	@ApiOperation(value="Adiciona um novo produto ao banco.")
-	public Products saveProduct(@RequestBody Products product) {
-		return productRepository.save(product);
+	public Meters saveProduct(@RequestBody Meters product) {
+		return meterRepository.save(product);
 	}
 	
-	@DeleteMapping("/product")
+	@DeleteMapping("/meter")
 	@ApiOperation(value="Deleta um produto do banco com a id especificada.")
-	public void deleteProduct(@RequestBody Products product) {
-		productRepository.delete(product);
+	public void deleteProduct(@RequestBody Meters product) {
+		meterRepository.delete(product);
 	}
 	
-	@PutMapping("/product")
+	@PutMapping("/meter")
 	@ApiOperation(value="Atualiza um produto do banco para a id especificada.")
-	public Products Product(@RequestBody Products product) {
-		return productRepository.save(product);
+	public Meters Product(@RequestBody Meters product) {
+		return meterRepository.save(product);
 	}
 	
 }
