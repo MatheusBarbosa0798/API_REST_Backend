@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.products.apirest.models.Product;
+import com.products.apirest.models.Products;
 import com.products.apirest.repository.ProductRepository;
 
 import io.swagger.annotations.Api;
@@ -28,31 +28,31 @@ public class ProductResource {
 	
 	@GetMapping("/products")
 	@ApiOperation(value="Retorna uma lista com todos os produtos.")
-	public List<Product> listProdcts(){
+	public List<Products> listProdcts(){
 		return productRepository.findAll();
 	}
 	
 	@GetMapping("/product/{id}")
 	@ApiOperation(value="Retorna um produto para a id especificada.")
-	public Product listOneProduct(@PathVariable(value="id") long id){
+	public Products listOneProduct(@PathVariable(value="id") long id){
 		return productRepository.findById(id);
 	}
 	
 	@PostMapping("/product")
 	@ApiOperation(value="Adiciona um novo produto ao banco.")
-	public Product saveProduct(@RequestBody Product product) {
+	public Products saveProduct(@RequestBody Products product) {
 		return productRepository.save(product);
 	}
 	
 	@DeleteMapping("/product")
 	@ApiOperation(value="Deleta um produto do banco com a id especificada.")
-	public void deleteProduct(@RequestBody Product product) {
+	public void deleteProduct(@RequestBody Products product) {
 		productRepository.delete(product);
 	}
 	
 	@PutMapping("/product")
 	@ApiOperation(value="Atualiza um produto do banco para a id especificada.")
-	public Product Product(@RequestBody Product product) {
+	public Products Product(@RequestBody Products product) {
 		return productRepository.save(product);
 	}
 	

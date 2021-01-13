@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="TB_METERS")
-public class Product implements Serializable{
+public class Products implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	

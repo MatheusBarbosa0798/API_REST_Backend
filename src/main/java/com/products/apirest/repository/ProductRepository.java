@@ -2,10 +2,10 @@ package com.products.apirest.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.products.apirest.models.Product;
+import com.products.apirest.models.Products;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Products, Long> {
 	
-	Product findById(long id);
+	Products findById(long id);
 
 }

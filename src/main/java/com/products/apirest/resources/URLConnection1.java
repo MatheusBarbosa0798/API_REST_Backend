@@ -1,6 +1,6 @@
 package com.products.apirest.resources;
 
-import com.products.apirest.models.Product;
+import com.products.apirest.models.Products;
 import java.lang.reflect.Type;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class URLConnection1 {
 
 	private static final String GET_URL = "http://localhost:8080/api/products";
 
-	public static List<Product> sendGET() throws IOException {
+	public static List<Products> sendGET() throws IOException {
 		URL obj = new URL(GET_URL);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 		con.setRequestMethod("GET");
@@ -35,12 +35,9 @@ public class URLConnection1 {
 				response.append(inputLine);
 			}
 			in.close();
-
-			// print result
-			System.out.println(response);
 			
-			Type listType = new TypeToken<ArrayList<Product>>(){}.getType();
-			List<Product> meterList = new Gson().fromJson(response.toString(), listType);
+			Type listType = new TypeToken<ArrayList<Products>>(){}.getType();
+			List<Products> meterList = new Gson().fromJson(response.toString(), listType);
 
 			return meterList;
 			
